@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Wallet - Your Freelance Writing Platform</title>
+    <style>
+        /* Basic styling for your website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(37, 36, 36);
+        }
+
+        header {
+            background-color: #ff7f50;
+            color: wheat;
+            text-align: center;
+            padding: 3px;
+        }
+
+        nav ul {
+            background-color: #ff7f50;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: wheat;
+        }
+
+        main {
+            margin: 5px;
+            padding: 20px;
+            background-color: rgb(37, 36, 36);
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .wallet-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: aquamarine;
+        }
+
+        .balance {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .withdraw-button {
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .withdraw-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #ff7f50;
+            color: wheat;
+            text-align: center;
+            padding:5px 0;
+            position: absolute;
+            width: 100%;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Freelance Platform</h1>
+        <p>Connect with clients, find transcribing jobs, and manage your freelance transcribing career.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="promptSubscriptionMessage()">Bid a Job</a></li>
+            <li><a href="tasks.html">My Tasks</a></li>
+            <li><a href="wallet.html">My Wallet</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="wallet-container">
+            <h2>My Wallet</h2>
+            <p class="balance">Balance: KSH 0.00</p>
+            
+            <!-- Withdrawal Section -->
+            <div class="withdraw-section">
+                <input type="number" class="withdraw-input" id="withdrawAmount" placeholder="Enter amount to withdraw" min="500" step="50">
+                <button class="withdraw-button" onclick="withdrawFunds()">Withdraw</button>
+                <p id="withdrawMessage">Funds will reflect here after payment.</p>
+            </div>
+            
+            <!-- Having Trouble Withdrawing Funds Section -->
+            <div class="trouble-withdrawal">
+                <h3>Having Trouble Withdrawing Your Funds?</h3>
+                <p>If you're experiencing issues with fund withdrawals, please <a href="contact.html">contact us</a> for assistance.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Function to withdraw funds
+        function withdrawFunds() {
+            const withdrawAmount = parseFloat(document.getElementById("withdrawAmount").value);
+            const balance = parseFloat(document.querySelector(".balance").innerText.replace("Balance: KSH ", ""));
+
+            if (isNaN(withdrawAmount) || withdrawAmount < 500 || withdrawAmount % 50 !== 0) {
+                alert("Please enter a valid withdrawal amount (minimum KSH 500).");
+            } else if (withdrawAmount > balance) {
+                alert("Insufficient funds.");
+            } else {
+                // Deduct the withdrawn amount from the balance
+                const newBalance = balance - withdrawAmount;
+                document.querySelector(".balance").innerText = `Balance: KSH ${newBalance.toFixed(2)}`;
+                document.getElementById("withdrawMessage").innerText = "Funds will reflect here after payment.";
+                // You can add code here to handle the actual payment process
+            }
+        }
+    </script>
+    <script>
+        function promptSubscriptionMessage() {
+          const confirmation = confirm("To access job listings and bid on jobs, please pay the subscription fee and verify your payment. Click 'OK' to pay now.");
+          if (confirmation) {
+              window.location.href = "payment.html"; // Redirect to the payment page
+          }
+      }
+    </script>
+    <footer>
+        <p>&copy; 2023 Your Freelance Transcribe Platform</p>
+    </footer> 
+</body>
+</html>

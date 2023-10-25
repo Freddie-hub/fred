@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Page</title>
+    <style>
+        /* Basic styling for your website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the page takes at least the height of the viewport. */
+        }
+
+        header {
+            background: url('header-bg.jpg') center/cover;
+            text-align: center;
+            padding: 10px;
+            transition: background 0.5s;
+            color: wheat;
+            background-color: #ff7f50;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #ff7f50;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0;
+            padding: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: wheat;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgb(37, 36, 36);
+            border-radius: 3px;
+            flex: 1; /* Take remaining vertical space. */
+        }
+
+ /* Subscription Section Styling */
+ .subscription-section {
+            background: linear-gradient(to right, #333, #555);
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            transition: background 0.5s;
+        }
+
+        .subscription-section:hover {
+            background: linear-gradient(to right, #555, #777);
+        }
+
+        .subscription-button {
+            background-color: #ff9a00;
+            color: wheat;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-button:hover {
+            background-color: #ff7f50;
+        }
+
+        .subscription-form {
+            display: none;
+            animation: slide-in 0.5s forwards;
+            margin-top: 20px;
+        }
+
+        .subscription-code-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ff9a00;
+            border-radius: 5px;
+        }
+
+        .subscription-submit {
+            background-color: #007acc;
+            color: wheat;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-submit:hover {
+            background-color: #0055a4;
+        }
+
+        footer {
+            background-color: #ff7f50;
+            color: wheat;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive CSS for smaller screens (e.g., mobile phones) */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+                text-align: center;
+            }
+
+            nav ul {
+                background-color: #ff7f50;
+                display: block;
+                text-align: center;
+            }
+
+            nav li {
+                display: block;
+                margin: 0;
+            }
+
+            main {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .subscription-section {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pay Today</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <!-- Add links to other pages as needed -->
+        </ul>
+    </nav>
+    <main>
+        <section class="subscription-section">
+            <h2>Pay Subscription Fee</h2>
+            <h3>KSH 300</h3>
+            <h3>Lipa na Mpesa.Till number 00000</h3>
+            <a href="javascript:void(0)" class="subscription-button" onclick="showSubscriptionForm()">Verify Payment</a>
+            <form class="subscription-form" id="subscriptionForm" style="display: none;">
+                <input type="text" class="subscription-code-input" id="subscriptionCode" placeholder="Enter the code sent to you">
+                <button class="subscription-submit" onclick="submitSubscriptionCode()">Submit</button>
+            </form>
+            <p class="subscription-message" id="subscriptionMessage"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Freelance Transcribe Platform</p>
+    </footer>
+
+    <script>
+        function showSubscriptionForm() {
+            const subscriptionForm = document.getElementById("subscriptionForm");
+            subscriptionForm.style.display = "block";
+        }
+
+        function submitSubscriptionCode() {
+            const subscriptionCode = document.getElementById("subscriptionCode").value;
+            // Display the message in a pop-up alert
+            alert("Invalid code. Please try again.");
+        }
+    </script>
+</body>
+</html>

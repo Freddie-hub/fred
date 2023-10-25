@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Freelance Writing Platform</title>
+    <style>
+        /* Basic styling for your website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:rgb(27, 27, 50) ;
+            color: wheat;
+        }
+
+        header {
+            background: url('header-bg.jpg') center/cover;
+            text-align: center;
+            padding: 5px;
+            transition: background 0.5s;
+        }
+
+        header h1, header p {
+            margin: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #ff7f50;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0;
+            padding: 3px;
+            transition: background-color 0.3s;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: wheat;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: wheat;
+            text-align: center;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        footer:hover {
+            background-color: #555;
+        }
+
+        /* Style for the container of reviews */
+        .reviews {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        /* Style for individual review boxes */
+        .review-box {
+            background-color: #252424;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+            color: wheat;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .review-box:hover {
+            background-color: #333;
+            transform: translateY(-5px);
+        }
+
+        /* Style for Instagram-style circular images with a border */
+        .review-image {
+            max-width: 100%;
+            border-radius: 50%;
+            border: 3px rgb(151, 88, 88);
+        }
+
+        .review-text {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Subscription Section Styling */
+        .subscription-section {
+            background: linear-gradient(to right, #333, #555);
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            transition: background 0.5s;
+        }
+
+        .subscription-section:hover {
+            background: linear-gradient(to right, #555, #777);
+        }
+
+        .subscription-button {
+            background-color: #ff9a00;
+            color: wheat;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-button:hover {
+            background-color: #ff7f50;
+        }
+
+        .subscription-form {
+            display: none;
+            animation: slide-in 0.5s forwards;
+            margin-top: 20px;
+        }
+
+        .subscription-code-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ff9a00;
+            border-radius: 5px;
+        }
+
+        .subscription-submit {
+            background-color: #007acc;
+            color: wheat;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-submit:hover {
+            background-color: #0055a4;
+        }
+
+        .job-info, .logo {
+            width: 48%;
+            display: inline-block;
+            color: wheat;
+            height: 200px;
+            margin: 3px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .image {
+            width: 50%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .review {
+            text-align: center;
+            color: wheat;
+        }
+
+        /* Add styling for the profile section */
+        .profile-section {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .profile-section a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: wheat;
+        }
+
+        /* Style for the profile details window */
+        .profile-details {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: wheat;
+            padding: 10px;
+            display: none;
+            z-index: 1;
+        }
+
+.profile-details h2 {
+    margin-top: 0;
+}
+
+
+        /* Responsive CSS for smaller screens (e.g., mobile phones) */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            nav ul {
+                padding: 0;
+                text-align: center;
+                display: block;
+            }
+
+            nav li {
+                display: block;
+                margin: 0;
+            }
+
+            main {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            footer {
+                padding: 5px;
+            }
+
+            .review-box {
+                width: 100%;
+            }
+
+            .job-info, .logo {
+                width: 100%;
+            }
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to your Freelance Platform
+        </h1>
+        <p>Connect with clients, find transcribing jobs, and manage your freelance transcribing career.</p>
+
+        <div class="profile-section">
+            <a href="#" id="profileLink">My Profile</a>
+            <a href="javascript:void(0)" onclick="logout()">Log Out</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="promptSubscriptionMessage()">Bid a Job</a></li>
+            <li><a href="tasks.html">My Tasks</a></li>
+            <li><a href="wallet.html">My Wallet</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="javascript:void(0)" onclick="communityMessage()">Community</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <div class="logo">
+            <img class="image" src="logo.png">
+        </div>
+        <div class="job-info">
+            <h1>We are Hiring!</h1>
+            <h2>We Offer Transcription Jobs</h2>
+            <h3>Convert audio to text and get paid</h3>
+            <p>Payments are made on a weekly basis through Mpesa. For every job done, we earn 10%, and the transcriber gets 90% of the pay</p>
+            <h4>Page down for reviews</h4>
+        </div>
+    </div>
+    
+    <section class="subscription-section">
+        <h2>Pay Subscription Fee</h2>
+        <h3>KSH 300</h3>
+        <h3>Lipa na Mpesa.Till number 00000</h3>
+        <a href="javascript:void(0)" class="subscription-button" onclick="showSubscriptionForm()">Verify Payment</a>
+        <form class="subscription-form" id="subscriptionForm" style="display: none;">
+            <input type="text" class="subscription-code-input" id="subscriptionCode" placeholder="Enter the code sent to you">
+            <button class="subscription-submit" onclick="submitSubscriptionCode()">Submit</button>
+        </form>
+        <p class="subscription-message" id="subscriptionMessage"></p>
+    </section>
+
+    <div class="review">
+        <h1>Reviews</h1>
+    </div>
+
+    <div class="reviews">
+        <div class="review-box">
+            <img src="https://images.pexels.com/photos/7562077/pexels-photo-7562077.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reviewer 3" class="review-image">
+            <p class="review-text">This website is really reliable. Join us as we make money on a daily basis.<br>~Brian Okello 20/9/2023</p>
+        </div>
+    
+        <div class="review-box">
+            <img src="https://images.pexels.com/photos/7562191/pexels-photo-7562191.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reviewer 4" class="review-image">
+            <p class="review-text">Thank you for the opportunity. I have learned so much and been earning much more.<br>~Wekesa Liam 14/7/2023</p>
+        </div>
+        <div class="review-box">
+            <img src="https://images.pexels.com/photos/977539/pexels-photo-977539.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Reviewer 5" class="review-image">
+            <p class="review-text">Such a wonderful opportunity to be earning on a daily basis.<br>~Juliet Shiku 6/8/2023</p>
+        </div>
+    </div>
+      
+    <footer>
+        <p>&copy; 2023 Your Freelance Transcribe Platform</p>
+    </footer>
+
+    <script>
+        function showSubscriptionForm() {
+            const subscriptionForm = document.getElementById("subscriptionForm");
+            subscriptionForm.style.display = "block";
+        }
+
+        function submitSubscriptionCode() {
+    const subscriptionCode = document.getElementById("subscriptionCode").value;
+
+    // Display the message in a pop-up alert
+    alert("Invalid code. Please try again.");
+        }
+    </script>
+    <script>
+          function promptSubscriptionMessage() {
+        const confirmation = confirm("To access job listings and bid on jobs, please pay the subscription fee and verify your payment. Click 'OK' to pay now.");
+        if (confirmation) {
+            window.location.href = "payment.html"; // Redirect to the payment page
+        }
+    }
+    </script>
+    <script>
+        function communityMessage() {
+      const confirmation = confirm("You will be added to our community where you will connect with clients and other transcribers once you pay the subscription fee and verify your account by verifying your payment.");
+      if (confirmation) {
+          window.location.href = "payment.html"; // Redirect to the payment page
+      }
+    }
+    </script>
+    <script>
+        function logout() {
+        window.location.href = "login.html"; // Redirect to the login page or another appropriate page.
+    }
+
+    // Event listener for the log out button
+    loginButton.addEventListener("click", logout);
+
+    </script>
+
+    <script>
+        // Import the Firebase Authentication functions (if not already imported)
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js';
+
+        const auth = getAuth();
+
+        // Function to check the authentication status and redirect if necessary
+        function checkAuthenticationStatus() {
+        onAuthStateChanged(auth, function (user) {
+            if (user) {
+            // User is authenticated, allow access to the page.
+            // You can also do additional setup here, if needed.
+            } else {
+            // User is not authenticated, redirect to the login page.
+            window.location.href = "login.html";
+            }
+        });
+        }
+
+        // Call the function when the page loads
+        checkAuthenticationStatus();
+    </script>
+
+</body>
+</html>

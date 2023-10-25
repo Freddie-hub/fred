@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Freelance Writing Platform</title>
+    <style>
+        /* Basic styling for your website (except colors) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(37, 36, 36);
+        }
+
+        /* Styling for the header and navigation */
+        header {
+          background-color: #ff7f50;
+            color: wheat;
+            text-align: center;
+            padding: 5px;
+        }
+
+        nav ul {
+          background-color: #ff7f50;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin: 5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: wheat;
+        }
+
+        /* Styling for task buttons */
+        .task-buttons {
+            background-color: rgb(37, 36, 36);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Use flex-direction to arrange buttons in a column */
+            align-items: center; /* Center-align the buttons vertically */
+        }
+
+        .task-button {
+            background-color: wheat;
+            color: #ff7f50;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 8px 0; /* Add margin to separate the buttons vertically */
+        }
+
+        .task-button:hover {
+            background-color: #ff7f50;
+            color: wheat;
+        }
+
+        /* Responsive CSS for smaller screens (e.g., mobile phones) */
+        @media (max-width: 768px) {
+
+        body{
+            background-color: rgb(37, 36, 36);
+        }  
+
+        header {
+            padding: 10px;
+            text-align: center; /* Center the text in the header on mobile */
+        }
+
+        nav ul {
+            padding: 10px 0; /* Add some padding to separate menu items */
+            text-align: center;
+            background-color: #ff7f50;
+            display: block;
+        }
+
+        nav li {
+            display: block;
+            margin: 10px 0; /* Add some margin to separate menu items */
+        }
+
+        .task-buttons {
+            background-color: #ff7f50;
+        }
+
+        .task-button {
+            width: 100%; /* Make buttons full width on mobile */
+            margin: 10px 0; /* Add margin to separate buttons */
+        }
+    }
+
+        footer {
+          background-color: #ff7f50;
+            color: wheat;
+            text-align: center;
+            padding:10px 0;
+            position: absolute;
+            width: 100%;
+            margin-top: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Freelance Platform</h1>
+        <p>Connect with clients, find transcribing jobs, and manage your freelance transcribing career.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="javascript:void(0)" onclick="promptSubscriptionMessage()">Bid a Job</a></li>
+            <li><a href="tasks.html">My Tasks</a></li>
+            <li><a href="wallet.html">My Wallet</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <section class="task-buttons">
+        <button id="currentTasksButton" class="task-button" onclick="showCurrentTasks()">Current Tasks</button>
+        <button id="taskListingsButton" class="task-button" onclick="showTaskListings()">Task Listings</button>
+        <button id="taskStatusButton" class="task-button" onclick="showTaskStatus()">Task Status</button>
+        <button id="taskDetailsButton" class="task-button" onclick="showTaskDetails()">Task Details</button>
+        <button id="taskHistoryButton" class="task-button" onclick="showTaskHistory()">Task History</button>
+        <button id="completedTasksButton" class="task-button" onclick="showCompletdTasks()">Completed Tasks</button>
+    </section>
+
+    
+    <script>
+      function returnCurrentTasks () {
+        alert("Granted jobs will appear here");
+      }
+
+      //return pop ups for tasks
+      function returnNoTasks () {
+        alert("No tasks available at the moment");
+      }
+
+      function returnVoid() {
+          alert('Void.No jobs done yet');
+        }
+        // New functions for task buttons
+        function showCurrentTasks() {
+            // Add code to display current tasks
+            returnCurrentTasks();
+        }
+
+        function showTaskListings() {
+            // Add code to display task listings
+            returnNoTasks();
+        }
+
+        function showTaskStatus() {
+            // Add code to display task status
+            returnNoTasks();
+        }
+
+        function showTaskDetails() {
+            // Add code to display task details
+            returnNoTasks();
+        }
+
+        function showTaskHistory() {
+            // Add code to display task history
+            returnNoTasks();
+        }
+
+          //return void function
+        function showCompletdTasks() {
+          returnVoid();
+        }
+
+        function promptSubscriptionMessage() {
+            const confirmation = confirm("To access job listings and bid on jobs, please pay the subscription fee and verify your payment. Click 'OK' to pay now.");
+            if (confirmation) {
+                window.location.href = "payment.html"; // Redirect to the payment page
+            }
+        }
+    </script>
+    <footer>
+      <p>&copy; 2023 Your Freelance Transcribe Platform</p>
+    </footer> 
+</body>
+</html>
